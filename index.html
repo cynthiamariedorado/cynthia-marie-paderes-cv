@@ -1,361 +1,788 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Cynthia Marie Paderes - Lead Tax Accountant portfolio and CV profile."
-    />
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cynthia Marie Paderes | Lead Tax Accountant</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <div class="brand">Cynthia Marie Paderes</div>
-        <nav>
-          <a href="#profile">Profile</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            50: '#f0f5fa',
+                            100: '#e1ebf5',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        },
+                        accent: {
+                            amber: '#d97706',
+                            emerald: '#059669',
+                            teal: '#0d9488',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Print-specific stylesheet for clean PDF export on Ctrl+P */
+        @media print {
+            nav, .no-print, button, .interactive-controls {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #0f172a !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .shadow-lg, .shadow-md, .shadow-sm {
+                box-shadow: none !important;
+            }
+            .border {
+                border-color: #e2e8f0 !important;
+            }
+            .bg-navy-900, .bg-slate-900 {
+                background-color: #1e293b !important;
+                color: #ffffff !important;
+            }
+            a {
+                text-decoration: none !important;
+                color: #0f172a !important;
+            }
+            .print-padding-reset {
+                padding: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 font-sans antialiased selection:bg-teal-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-slate-800 text-white transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand / Name -->
+                <a href="#hero" class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-teal-500 to-amber-500 flex items-center justify-center text-white font-heading font-bold text-lg shadow-md">
+                        CP
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-lg tracking-tight block leading-none">Cynthia M. Paderes</span>
+                        <span class="text-xs text-teal-400 font-medium">Lead Tax Accountant</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-300 hover:text-teal-400 transition-colors">About</a>
+                    <a href="#experience" class="text-slate-300 hover:text-teal-400 transition-colors">Experience</a>
+                    <a href="#skills" class="text-slate-300 hover:text-teal-400 transition-colors">Skills</a>
+                    <a href="#education" class="text-slate-300 hover:text-teal-400 transition-colors">Education</a>
+                    <a href="#contact" class="text-slate-300 hover:text-teal-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center space-x-3 no-print">
+                    <button onclick="window.print()" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                        <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                        <span>Print / Save PDF</span>
+                    </button>
+                    <a href="#contact" class="inline-flex items-center px-4 py-1.5 rounded-lg text-xs font-semibold bg-teal-600 hover:bg-teal-500 text-white shadow-sm transition">
+                        Hire Me
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-navy-950 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">About</a>
+            <a href="#experience" class="mobile-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Skills</a>
+            <a href="#education" class="mobile-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Education</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">Contact</a>
+            <div class="pt-2 flex flex-col space-y-2">
+                <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-md text-xs font-semibold bg-slate-800 text-slate-200">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    <span>Print / Save PDF</span>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-inner">
-          <div class="hero-copy">
-            <p class="eyebrow">Tax Compliance | Indirect Tax | Controls</p>
-            <h1>Cynthia Marie Paderes</h1>
-            <h2>Lead Tax Accountant</h2>
-            <p class="summary">
-              Tax professional with 12+ years of experience in indirect and corporate
-              tax across multinational manufacturing and services environments. I lead
-              EU indirect tax reporting and support process improvement, VAT controls,
-              cross-functional coordination, and tax provision activities.
-            </p>
-            <div class="cta-row">
-              <a class="btn primary" href="#experience">View experience</a>
-              <a class="btn secondary" href="mailto:cynthiamariedorado@gmail.com">Email CV</a>
-            </div>
-            <ul class="quick-contact">
-              <li><span>Email:</span> cynthiamariedorado@gmail.com</li>
-              <li><span>Phone:</span> 0969-609-6241</li>
-            </ul>
-          </div>
-          <aside class="hero-panel">
-            <div class="panel-card">
-              <h3>Professional Snapshot</h3>
-              <ul>
-                <li>12+ years indirect and corporate tax experience</li>
-                <li>EU VAT filings across France, Netherlands, and Switzerland</li>
-                <li>Strong controls mindset with SOX and audit support</li>
-                <li>ERP experience in SAP FI and Oracle</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </section>
+    <!-- Hero / Header Section -->
+    <section id="hero" class="bg-gradient-to-b from-navy-900 via-navy-800 to-slate-900 text-white pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b border-slate-800 relative overflow-hidden">
+        <!-- Background Decorative Accents -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <section id="profile" class="section">
-        <div class="container two-col">
-          <div>
-            <p class="section-tag">Profile</p>
-            <h3>Tax professional with a strong compliance and process control background</h3>
-          </div>
-          <div>
-            <p>
-              Lead Tax Accountant with direct responsibility for EU indirect tax
-              reporting across France, the Netherlands, and Switzerland. This includes
-              EC VAT returns, Intrastat submissions, EC sales listings, VAT-to-GL
-              reconciliations, and audit support. I work closely with finance, tax,
-              and external providers to ensure timely and accurate filings while
-              improving internal controls and operational efficiency.
-            </p>
-            <p>
-              My background also includes transfer pricing support, tax provision
-              assistance, deferred tax calculations, and alignment with US GAAP reporting.
-              I am comfortable leading in high-volume, deadline-driven environments and
-              delivering solutions that balance compliance with process improvement.
-            </p>
-          </div>
-        </div>
-      </section>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                        <span>Available for Global Tax Leadership & Consulting</span>
+                    </div>
 
-      <section class="section muted">
-        <div class="container">
-          <p class="section-tag">Core strengths</p>
-          <div class="metrics-grid">
-            <div class="metric-card">
-              <strong>EU VAT</strong>
-              <span>French, Dutch, and Swiss reporting</span>
-            </div>
-            <div class="metric-card">
-              <strong>Reconciliations</strong>
-              <span>VAT-to-GL and ledger validation</span>
-            </div>
-            <div class="metric-card">
-              <strong>Controls</strong>
-              <span>SOX support and filing governance</span>
-            </div>
-            <div class="metric-card">
-              <strong>Systems</strong>
-              <span>SAP FI, Oracle ERP, Excel analytics</span>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="space-y-2">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white">
+                            CYNTHIA MARIE <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-amber-400">PADERES</span>
+                        </h1>
+                        <p class="text-xl sm:text-2xl font-medium text-slate-300">
+                            Lead Tax Accountant
+                        </p>
+                    </div>
 
-      <section id="experience" class="section">
-        <div class="container">
-          <p class="section-tag">Work experience</p>
-          <div class="timeline">
-            <article class="job-item">
-              <div class="job-header">
-                <div>
-                  <h3>Lead Tax Accountant</h3>
-                  <p>Knit EOR Services (Philippines) Inc.</p>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed">
+                        Seasoned finance professional with <span class="text-white font-semibold">12+ years of indirect and corporate tax experience</span> across multinational manufacturing and services environments. Expert in EU VAT compliance, global tax provisions, transfer pricing, and cross-border statutory reporting.
+                    </p>
+
+                    <!-- Quick Contact Badges -->
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="mailto:cynthiamariedorado@gmail.com" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-medium transition">
+                            <i data-lucide="mail" class="w-4 h-4 text-teal-400"></i>
+                            <span>cynthiamariedorado@gmail.com</span>
+                        </a>
+                        <a href="tel:09696096241" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-medium transition">
+                            <i data-lucide="phone" class="w-4 h-4 text-teal-400"></i>
+                            <span>0969-609-6241</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/cynthia-marie-paderes-000290117" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-medium transition">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-teal-400"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="pt-4 flex flex-wrap items-center gap-4 no-print">
+                        <button onclick="window.print()" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white font-semibold text-sm shadow-lg shadow-teal-900/30 transition transform hover:-translate-y-0.5">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>Download / Print CV (PDF)</span>
+                        </button>
+                        <a href="#contact" class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition">
+                            <i data-lucide="send" class="w-4 h-4 text-amber-400"></i>
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
                 </div>
-                <span>Jun 2026 — Present</span>
-              </div>
-              <ul>
-                <li>Own EU indirect tax reporting for France, the Netherlands, and Switzerland, including EC VAT returns, Intrastat reports, and EC sales listings.</li>
-                <li>Consolidate ledger data and supporting schedules for in-house preparation and third-party handoff, ensuring filings are accurate, complete, and timely.</li>
-                <li>Coordinate cross-functional stakeholders and filing calendars to keep submissions on track and reinforce compliance controls.</li>
-                <li>Analyze VAT payable and refundable positions, investigate anomalies through VAT analytics, and support audit responses and tax authority inquiries.</li>
-                <li>Partner with the Global Indirect Tax Manager to improve VAT processes, strengthen SOX controls, and support continuous process improvements.</li>
-                <li>Prepare transfer pricing calculations, journal entries, and documentation to support intercompany compliance and quarterly tax provision activities.</li>
-                <li>Support US GAAP reporting by assisting with deferred tax calculations and disclosure notes.</li>
-              </ul>
-            </article>
 
-            <article class="job-item">
-              <div class="job-header">
-                <div>
-                  <h3>Lead Tax Accountant</h3>
-                  <p>Maxeon Solar Technologies (Sunpower Ph)</p>
+                <!-- Stats / Highlight Cards Side Banner -->
+                <div class="lg:col-span-4 mt-8 lg:mt-0">
+                    <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/80 rounded-2xl p-6 space-y-5 shadow-xl">
+                        <h3 class="text-xs uppercase font-bold tracking-wider text-slate-400 border-b border-slate-700/60 pb-2">Key Competency Highlights</h3>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-teal-500/10 border border-teal-500/20 rounded-xl text-teal-400 shrink-0">
+                                <i data-lucide="globe" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">EU & Global Indirect Tax</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">France, Netherlands, Switzerland, Canada, Mexico, Poland, Czech, Ireland</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-400 shrink-0">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">Enterprise Systems</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">SAP FI (ARM), Oracle ERP (ART), BIR e-Filing Systems</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400 shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-white">SOX & Transfer Pricing</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">Internal controls, TP manual journals, deferred taxes & audit support</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <span>Nov 2023 — Jun 2026</span>
-              </div>
-              <ul>
-                <li>Supported indirect tax compliance across France, the Netherlands, Switzerland, and other jurisdictions by preparing EC VAT returns, Intrastat reports, and EC sales listings.</li>
-                <li>Validated ledger data and supporting schedules for in-house preparation and third-party provider handoff, improving accuracy and timeliness of submissions.</li>
-                <li>Tracked filing deadlines and coordinated stakeholders to support on-time filings and stronger internal controls.</li>
-                <li>Supported tax provision and transfer pricing activities through quarterly adjustment journal entries and intercompany loan processing.</li>
-                <li>Performed VAT analysis to identify trends and exceptions and supported indirect tax audits and tax authority inquiries.</li>
-                <li>Assisted the Global Indirect Tax Manager with VAT process improvements, control documentation, PO processing, and professional fee payments.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      <section id="skills" class="section muted">
-        <div class="container">
-          <p class="section-tag">Skills & tools</p>
-          <div class="stack-boxes">
-            <span>SAP FI</span>
-            <span>EC VAT</span>
-            <span>Intrastat</span>
-            <span>VAT-to-GL Reconciliations</span>
-            <span>BIR e-filing Tools</span>
-            <span>SOX Controls</span>
-            <span>Oracle ERP</span>
-            <span>EC Sales Listings</span>
-            <span>Account Reconciliation Tool (Oracle)</span>
-            <span>US GAAP</span>
-            <span>Deferred Tax</span>
-            <span>Indirect Tax & VAT Compliance</span>
-            <span>Tax Provision</span>
-            <span>Transfer Pricing</span>
-            <span>Microsoft Excel</span>
-            <span>Microsoft Word</span>
-            <span>Microsoft PowerPoint</span>
-            <span>Account Reconciliation Management (SAP)</span>
-          </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="section">
-        <div class="container two-col">
-          <div>
-            <p class="section-tag">Additional background</p>
-            <h3>Relevant professional strengths</h3>
-          </div>
-          <div class="bullet-list">
-            <ul>
-              <li>Multinational indirect tax exposure in manufacturing and service sectors</li>
-              <li>Strong understanding of tax reporting calendars and regulatory submission cycles</li>
-              <li>Cross-functional collaboration with finance, tax, and external advisors</li>
-              <li>Hands-on experience with ERP systems and tax data validation</li>
-              <li>Comfortable handling month-end, quarter-end, and audit support processes</li>
-              <li>Analytical mindset focused on accuracy, control, and process improvement</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
+    <!-- Professional Summary / About Section -->
+    <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest">Executive Profile</h2>
+                <p class="text-3xl font-heading font-bold text-slate-900 mt-1">Professional Overview</p>
+                <div class="w-12 h-1 bg-gradient-to-r from-teal-500 to-amber-500 mx-auto mt-3 rounded-full"></div>
+            </div>
 
-    <footer id="contact" class="footer">
-      <div class="container footer-inner">
-        <div>
-          <h3>Cynthia Marie Paderes</h3>
-          <p>Lead Tax Accountant</p>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+                <p class="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+                    Lead Tax Accountant with <strong>12+ years of indirect and corporate tax experience</strong> across multinational manufacturing and services environments. Lead EU indirect tax reporting across <strong>France, the Netherlands, and Switzerland</strong>, with full ownership of EC VAT returns, Intrastat, EC sales listings, VAT-to-GL reconciliations, and audit support. Partner cross-functionally with finance, tax, and external providers to improve filing accuracy, strengthen SOX controls, and keep submissions on track. Experienced in transfer pricing adjustments, tax provision support, deferred tax calculations, and US GAAP reporting, with hands-on expertise in <strong>SAP FI, Oracle ERP, and advanced Excel analytics</strong>.
+                </p>
+
+                <!-- Core Pillars Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-3">
+                            <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-semibold text-slate-900 text-base mb-1">Indirect Tax & Statutory Filings</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            End-to-end management of EC VAT returns, EC Sales Listings, Intrastat reports, and statutory returns across multiple European and global jurisdictions.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-semibold text-slate-900 text-base mb-1">Tax Accounting & Transfer Pricing</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Expertise in tax provisions, US GAAP deferred tax calculations, intercompany TP manual journal adjustments, and tax-to-GL account reconciliations.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                            <i data-lucide="check-circle" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-semibold text-slate-900 text-base mb-1">Audit Defence & Controls</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Strengthening SOX internal controls, managing indirect tax audits, handling tax authority enquiries, and leading process optimization initiatives.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-contact">
-          <a href="mailto:cynthiamariedorado@gmail.com">cynthiamariedorado@gmail.com</a>
-          <a href="tel:+639696096241">0969-609-6241</a>
-          <a href="https://www.linkedin.com/in/cynthia" target="_blank" rel="noreferrer">LinkedIn</a>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest">Career History</h2>
+                <p class="text-3xl font-heading font-bold text-slate-900 mt-1">Professional Experience</p>
+                <div class="w-12 h-1 bg-gradient-to-r from-teal-500 to-amber-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative border-l-2 border-slate-300 md:ml-6 space-y-10 pl-6 sm:pl-8">
+
+                <!-- Job Item 1 -->
+                <div class="relative group">
+                    <!-- Timeline Dot -->
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-teal-600 border-4 border-white shadow-sm ring-2 ring-teal-200"></div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <span class="inline-block px-2.5 py-0.5 rounded text-xs font-semibold bg-teal-100 text-teal-800 mb-2">Current Role</span>
+                                <h3 class="text-xl font-heading font-bold text-slate-900">Lead Tax Accountant</h3>
+                                <p class="text-sm font-semibold text-teal-700">Knit EOR Services (Philippines) Inc.</p>
+                            </div>
+                            <div class="flex items-center text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg w-fit">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5 text-slate-400"></i>
+                                Jun 2026 – Present
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 list-disc list-outside ml-4">
+                            <li>Own EU indirect tax reporting for <strong>France, the Netherlands, and Switzerland</strong>, including EC VAT returns, Intrastat reports, and EC sales listings.</li>
+                            <li>Consolidate ledger data and supporting schedules for in-house preparation and third-party handoff, ensuring filings are accurate, complete, and timely.</li>
+                            <li>Coordinate cross-functional stakeholders and filing calendars to keep submissions on track and reinforce compliance controls.</li>
+                            <li>Analyze VAT payable and refundable positions, investigate anomalies through VAT analytics, and support audit responses and tax authority enquiries.</li>
+                            <li>Partner with the Global Indirect Tax Manager to improve VAT processes, strengthen SOX controls, and support continuous process improvements.</li>
+                            <li>Independently prepare Transfer Pricing (TP) calculations, journal entries, and documentation to support intercompany compliance and quarterly tax provision activities.</li>
+                            <li>Support US GAAP reporting by assisting with deferred tax calculations and disclosure notes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job Item 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-400 border-4 border-white shadow-sm"></div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-slate-900">Lead Tax Accountant</h3>
+                                <p class="text-sm font-semibold text-teal-700">Maxeon Solar Technologies (Sunpower Philippines Manufacturing Ltd)</p>
+                            </div>
+                            <div class="flex items-center text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg w-fit">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5 text-slate-400"></i>
+                                Nov 2023 – Jun 2026
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 list-disc list-outside ml-4">
+                            <li>Supported indirect tax compliance across <strong>France, the Netherlands, Switzerland</strong>, and other jurisdictions by preparing EC VAT returns, Intrastat reports, and EC sales listings.</li>
+                            <li>Validated ledger data and supporting schedules for in-house preparation and third-party provider handoff, improving accuracy and timeliness of submissions.</li>
+                            <li>Tracked filing deadlines and coordinated stakeholders to support on-time filings and stronger internal controls.</li>
+                            <li>Supported tax provision and transfer pricing activities through quarterly adjustment journal entries, intercompany loan processing, and AGIS transfer pricing adjustment booking.</li>
+                            <li>Performed VAT analysis to identify trends and exceptions, and supported indirect tax audits and tax authority enquiries.</li>
+                            <li>Assisted the Global Indirect Tax Manager with VAT process improvements, control documentation, PO processing, and professional fee payments.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job Item 3 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-400 border-4 border-white shadow-sm"></div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-slate-900">Global Tax Accountant</h3>
+                                <p class="text-sm font-semibold text-teal-700">Fieldcore Service Solution International-LLC (GE Vernova)</p>
+                            </div>
+                            <div class="flex items-center text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg w-fit">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5 text-slate-400"></i>
+                                Feb 2018 – Dec 2022
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 list-disc list-outside ml-4">
+                            <li>Prepared VAT workbooks and compliance packages for <strong>7 international jurisdictions</strong>: Canada, Mexico, Switzerland, Ireland, Finland, Poland, and Czech Republic.</li>
+                            <li>Prepared and reviewed quarterly and annual income tax provision calculations globally under US GAAP, partnering with finance leads on local tax accounting positions.</li>
+                            <li>Reconciled tax accounts using <strong>ARM (SAP)</strong> and <strong>ART (Oracle)</strong> reconciliation tools for VAT and corporate income tax accounts.</li>
+                            <li>Participated in transfer pricing strategy and policies, maintaining the tax policies and procedures manual.</li>
+                            <li>Prepared Return-to-Accrual workbooks and reconciliations for US payroll tax and US deferred tax items.</li>
+                            <li>Maintained the electronic compliance database and transmitted consolidated tax data to the parent company under strict deadline constraints.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job Item 4 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-400 border-4 border-white shadow-sm"></div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-slate-900">Tax Specialist</h3>
+                                <p class="text-sm font-semibold text-teal-700">Global Restaurant Concepts, Inc.</p>
+                            </div>
+                            <div class="flex items-center text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg w-fit">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5 text-slate-400"></i>
+                                Jul 2016 – Jan 2018
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 list-disc list-outside ml-4">
+                            <li>Managed full tax compliance for <strong>9 restaurant group entities</strong> (California Pizza Kitchen, Applebee's, IHOP, Morelli's Gelato, Gyu-Kaku).</li>
+                            <li>Prepared monthly, quarterly, and annual tax reports (Expanded Withholding, Final Tax, Compensation, VAT Returns, and 1702 ITR) for e-filing via BIR portals.</li>
+                            <li>Prepared monthly Monthly Alphanumeric Tax Code (MAP) for EWT payments and issued Certificates of Withholding Tax (Form 2307) to suppliers.</li>
+                            <li>Prepared Alpha lists, semi-annual list of regular suppliers, and Summary List of Sales and Purchases (SLSP).</li>
+                            <li>Liaised with government agencies (BIR, Municipalities) regarding submission of financial reports and legal compliance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job Item 5 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-slate-400 border-4 border-white shadow-sm"></div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-slate-900">Accounting Staff</h3>
+                                <p class="text-sm font-semibold text-teal-700">First Sumiden Circuits Inc. (Sumitomo Electric Industries, Ltd.)</p>
+                            </div>
+                            <div class="flex items-center text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg w-fit">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5 text-slate-400"></i>
+                                Aug 2013 – May 2016
+                            </div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 list-disc list-outside ml-4">
+                            <li>Prepared monthly and quarterly tax reports and VAT returns for e-filing in full compliance with BIR regulations.</li>
+                            <li>Managed EWT processes, monthly MAP, Certificates of Withholding Tax, and summary list of importations for VAT.</li>
+                            <li>Reviewed and encoded local vendor invoices and freight billings in <strong>SAP</strong> with proper account coding.</li>
+                            <li>Assisted in preparing documentary requirements for Tax Treaty Relief Ruling applications with BIR International Tax Affairs Division (ITAD).</li>
+                            <li>Liaised with BIR, PEZA, SEC, and BOC for tax clearance and financial report submissions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- Skills & Systems Section -->
+    <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest">Technical Proficiency</h2>
+                <p class="text-3xl font-heading font-bold text-slate-900 mt-1">Skills & Tax Systems</p>
+                <div class="w-12 h-1 bg-gradient-to-r from-teal-500 to-amber-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Skill Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10 no-print">
+                <button onclick="filterSkills('all')" class="skill-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-white transition">All Skills</button>
+                <button onclick="filterSkills('erp')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">ERP & Tax Tools</button>
+                <button onclick="filterSkills('tax')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Tax & Compliance</button>
+                <button onclick="filterSkills('software')" class="skill-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Software & Analytics</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- ERP & Systems -->
+                <div class="skill-card erp bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-teal-100 text-teal-700">
+                            <i data-lucide="database" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">SAP FI & ARM</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Enterprise GL posting, account coding, and Account Reconciliation Management (ARM).</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-teal-600 h-2 rounded-full w-[90%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card erp bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-teal-100 text-teal-700">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">Oracle ERP & ART</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Global ledger reconciliation using Oracle Account Reconciliation Tool (ART).</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-teal-600 h-2 rounded-full w-[85%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card erp bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-teal-100 text-teal-700">
+                            <i data-lucide="building" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">BIR Toolings & e-Filings</h3>
+                        
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">eFPS, eBIRForms, SLSP, MAP, and Philippines local statutory compliance.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-teal-600 h-2 rounded-full w-[95%]"></div>
+                    </div>
+                </div>
+
+                <!-- Tax Expertise -->
+                <div class="skill-card tax bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-amber-100 text-amber-700">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">EU Indirect Tax & Intrastat</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">EC VAT, Intrastat declarations, and EC Sales Listings across European Union.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-amber-600 h-2 rounded-full w-[95%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card tax bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-amber-100 text-amber-700">
+                            <i data-lucide="calculator" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">Transfer Pricing & Tax Provision</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Intercompany loan agreements, TP manual journal adjustments, and tax provisions.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-amber-600 h-2 rounded-full w-[88%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card tax bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-amber-100 text-amber-700">
+                            <i data-lucide="shield" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">SOX Controls & Audit Defence</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Internal control documentation, tax authority enquiries, and audit support.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-amber-600 h-2 rounded-full w-[90%]"></div>
+                    </div>
+                </div>
+
+                <!-- Software & Analytics -->
+                <div class="skill-card software bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-indigo-100 text-indigo-700">
+                            <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">Advanced Microsoft Excel</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Financial modeling, VAT trend analytics, Power Query, and pivot reconciliations.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-indigo-600 h-2 rounded-full w-[95%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card software bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-indigo-100 text-indigo-700">
+                            <i data-lucide="pie-chart" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">Tax Analysis & Reporting</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Data trend analysis, Return-to-Accrual workbooks, and US GAAP reporting.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-indigo-600 h-2 rounded-full w-[90%]"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card software bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 rounded-lg bg-indigo-100 text-indigo-700">
+                            <i data-lucide="presentation" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-900 text-base">MS Office Suite</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 mb-3">Microsoft Word, PowerPoint executive summaries, and presentation decks.</p>
+                    <div class="w-full bg-slate-200 rounded-full h-2">
+                        <div class="bg-indigo-600 h-2 rounded-full w-[85%]"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest">Academic Background</h2>
+                <p class="text-3xl font-heading font-bold text-slate-900 mt-1">Education</p>
+                <div class="w-12 h-1 bg-gradient-to-r from-teal-500 to-amber-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Degree -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-teal-600"></div>
+                    <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-1 rounded">2008 – 2013</span>
+                    <h3 class="text-lg font-heading font-bold text-slate-900 mt-2">Bachelor of Science in Accountancy</h3>
+                    <p class="text-xs font-medium text-slate-600 mt-1">City College of Calamba</p>
+                    <p class="text-xs text-slate-600 mt-3">Comprehensive 5-year degree in financial accounting, auditing, taxation, and corporate law.</p>
+                </div>
+
+                <!-- High School -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">2004 – 2008</span>
+                    <h3 class="text-base font-heading font-bold text-slate-900 mt-2">Secondary Education</h3>
+                    <p class="text-xs font-medium text-slate-600 mt-1">Kapayapaan National High School</p>
+                    <p class="text-xs text-slate-600 mt-3">Graduated secondary education with academic honors.</p>
+                </div>
+
+                <!-- Primary School -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">1998 – 2004</span>
+                    <h3 class="text-base font-heading font-bold text-slate-900 mt-2">Primary Education</h3>
+                    <p class="text-xs font-medium text-slate-600 mt-1">San Ramon Elementary School</p>
+                    <p class="text-xs text-slate-600 mt-3">Elementary educational foundation.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 bg-navy-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <!-- Left Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <h2 class="text-xs font-bold text-teal-400 uppercase tracking-widest">Get In Touch</h2>
+                        <p class="text-3xl font-heading font-bold text-white mt-1">Let's Connect</p>
+                        <p class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
+                            Open for tax accounting inquiries, indirect tax consulting, and leadership roles in enterprise tax management.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="mailto:cynthiamariedorado@gmail.com" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-teal-500 transition">
+                            <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-slate-400 font-medium">Email Address</p>
+                                <p class="text-sm font-semibold text-white truncate">cynthiamariedorado@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="tel:09696096241" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-teal-500 transition">
+                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Mobile Phone</p>
+                                <p class="text-sm font-semibold text-white">0969-609-6241</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/cynthia-marie-paderes-000290117" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-teal-500 transition">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center shrink-0">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">LinkedIn Profile</p>
+                                <p class="text-sm font-semibold text-white">cynthia-marie-paderes</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form Mockup -->
+                <div class="lg:col-span-7 bg-slate-800/90 border border-slate-700 p-6 sm:p-8 rounded-2xl no-print">
+                    <h3 class="text-lg font-heading font-bold text-white mb-2">Send a Message</h3>
+                    <p class="text-xs text-slate-400 mb-6">Leave a note and I will get back to you promptly.</p>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white text-xs focus:outline-none focus:border-teal-500 transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Your Email</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white text-xs focus:outline-none focus:border-teal-500 transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Subject</label>
+                            <input type="text" required placeholder="Tax Inquiry / Opportunity" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white text-xs focus:outline-none focus:border-teal-500 transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Write your message here..." class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-lg text-white text-xs focus:outline-none focus:border-teal-500 transition"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white font-semibold rounded-lg text-xs tracking-wider uppercase transition shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <div id="form-message" class="hidden mt-4 p-3 rounded-lg bg-teal-500/20 border border-teal-500 text-teal-300 text-xs text-center">
+                        Thank you for reaching out! Your message has been recorded.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="mt-16 pt-8 border-t border-slate-800 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; <span id="year"></span> Cynthia Marie Paderes. All rights reserved.</p>
+                <p class="text-slate-400">Lead Tax Accountant & VAT Specialist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Filter Skills Functionality
+        function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            const btns = document.querySelectorAll('.skill-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('active', 'bg-slate-900', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            event.target.classList.add('active', 'bg-slate-900', 'text-white');
+            event.target.classList.remove('bg-slate-100', 'text-slate-700');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form Submission Mock
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            const msg = document.getElementById('form-message');
+            
+            form.reset();
+            msg.classList.remove('hidden');
+
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
