@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Cynthia Marie Paderes — Lead Tax Accountant</title>
+  <desc id="description">Resume and professional profile highlighting global indirect tax, tax accounting, and compliance expertise.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1060" cy="40" r="360" fill="url(#glow)"/>
+  <circle cx="95" cy="610" r="300" fill="url(#glow)" opacity=".55"/>
+  <rect x="80" y="90" width="8" height="450" rx="4" fill="url(#accent)"/>
+  <text x="125" y="190" fill="#5eead4" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="5">RESUME · PROFESSIONAL PROFILE</text>
+  <text x="120" y="300" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700">Cynthia Marie</text>
+  <text x="120" y="382" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700">Paderes</text>
+  <rect x="124" y="420" width="120" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="120" y="485" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="500">Lead Tax Accountant</text>
+  <text x="120" y="535" fill="#94a3b8" font-family="Arial, Helvetica, sans-serif" font-size="22">Global Indirect Tax · Tax Accounting · Compliance</text>
+  <g transform="translate(965 445)">
+    <rect width="150" height="96" rx="22" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".14"/>
+    <text x="75" y="65" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700">CP</text>
+  </g>
+</svg>
